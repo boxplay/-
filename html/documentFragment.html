@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="test">
+    <li>test1</li>
+    <li>test1</li>
+    <li>test1</li>
+</div>
+</body>
+<script>
+  const ul = document.getElementById('test')
+// 创建fragment对象
+const fragment = document.createDocumentFragment()
+//  取出ul中的所有子节点并保存到fragment
+let child;
+while(child=ul.firstChild) {
+  fragment.appendChild(child)
+}
+//更新fragment中的所有节点（li的内容）
+Array.prototype.slice.call(fragment.childNodes).forEach(node => {
+  if (node.nodeType===1) {//取得元素节点
+    node.textContent = 'test2' //重新赋值为test2
+  }
+})
+// 将fragment插入到ul
+ul.appendChild(fragment)
+</script>
+</html>

@@ -1,0 +1,4 @@
+1.重要cookie 设置httpOnly
+2.用户输入编码
+3.过滤数据
+4.转义html
